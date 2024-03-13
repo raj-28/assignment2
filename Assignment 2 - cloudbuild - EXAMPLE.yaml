@@ -1,0 +1,15 @@
+steps:
+  # Docker Build
+
+  # Docker Push
+  
+
+# setup cloud sdk
+
+
+    
+images:
+  - ##provide image info##
+  
+options:
+    defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
