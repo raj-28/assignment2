@@ -13,7 +13,7 @@ steps:
     args:
       - '-c'
       - |
-        gcloud run deploy kushal-image \
+        gcloud run deploy patel-image \
           --image us-central1-docker.pkg.dev/thinking-anthem-401817/raj100923100registry/patel-image:$COMMIT_SHA \
           --platform managed \
           --region us-central1
