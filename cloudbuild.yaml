@@ -1,15 +1,27 @@
 steps:
   # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/thinking-anthem-401817/raj100923100registry/patel-image:$COMMIT_SHA', '.']
 
   # Docker Push
-  
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/thinking-anthem-401817/raj100923100registry/patel-image:$COMMIT_SHA']
 
-# setup cloud sdk
+  # #Deploy Docker container to Cloud Run using Google Cloud SDK
+  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  #   entrypoint: 'bash'
+  #   args:
+  #     - '-c'
+  #     - |
+  #       gcloud run deploy kushal-image \
+  #         --image us-central1-docker.pkg.dev/nklab-415204/gcp-pipeline/kushal-image:$COMMIT_SHA \
+  #         --platform managed \
+  #         --region us-central1
 
-
-    
 images:
-  - ##provide image info##
+  - 'us-central1-docker.pkg.dev/thinking-anthem-401817/raj100923100registry/patel-image:$COMMIT_SHA'
   
 options:
     defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
+
+#Adding comment
