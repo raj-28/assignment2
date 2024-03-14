@@ -7,16 +7,16 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/thinking-anthem-401817/raj100923100registry/patel-image:$COMMIT_SHA']
 
-  # #Deploy Docker container to Cloud Run using Google Cloud SDK
-  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  #   entrypoint: 'bash'
-  #   args:
-  #     - '-c'
-  #     - |
-  #       gcloud run deploy kushal-image \
-  #         --image us-central1-docker.pkg.dev/nklab-415204/gcp-pipeline/kushal-image:$COMMIT_SHA \
-  #         --platform managed \
-  #         --region us-central1
+  #Deploy Docker container to Cloud Run using Google Cloud SDK
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud run deploy kushal-image \
+          --image us-central1-docker.pkg.dev/thinking-anthem-401817/raj100923100registry/patel-image:$COMMIT_SHA \
+          --platform managed \
+          --region us-central1
 
 images:
   - 'us-central1-docker.pkg.dev/thinking-anthem-401817/raj100923100registry/patel-image:$COMMIT_SHA'
